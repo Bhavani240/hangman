@@ -1,0 +1,74 @@
+import random
+
+def choose_word(): # List of words for the game
+
+words=['apple', 'banana', 'orange','grape','strawberry','watermelon']
+
+#Choose a random word from the list
+
+return random.choice (words)
+
+def display_word (word, guessed_letters):
+
+# Display the word with guessed letters and placeholders
+
+	display
+
+	for letter in word:
+
+		if letter in guessed_letters:
+			display + letter + ' '
+				else:
+
+					display += '_'
+	return display
+
+def hangman():
+word_to_guess=choose_word()
+	guessed=[]
+
+	attempts=6
+
+	print("Welcome to Hangman!")
+
+	while True:
+		print("\n" + display_word(word_to_guess, guessed))
+
+		if'-' not in display_word (word_to_guess, guessed):
+
+			print("Congratulations! You guessed the word:", word_to_guess)
+
+			break
+
+		if attempts == 0:
+
+	    	print("Sorry, you ran out of attempts! The word was:", word_to_guess) 
+			break
+
+		guess=input("Guess a letter: ").lower()
+
+		if len(guess)! 1 or not guess.isalpha(): 
+			print("Please enter a single alphabet.")
+
+			continue
+
+		if guess in guessed:
+
+			print("You've already guessed that letter.")
+
+		elif guess in word_to_guess:
+
+			guessed.append(guess)
+
+			print("Good guess!")
+
+	    else:
+
+			guessed.append(guess)
+
+			attempts -= 1
+			print(f"Sorry, '{guess)' is not in the word. Attempts left: (attempts}")
+
+if_name_ hangman() "main":
+
+#This Hangman game randomly selects a word from a predefined list and allows the player to guess letters until they either guess the word correctly or run out of attempts. The player has 6 attempts to guess the word.
